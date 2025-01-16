@@ -1,11 +1,48 @@
 # Bootloader for STM32
 
-The bootloader uses `embassy-boot` to interact with the flash.
+This is the bootloader for poulpe boards based on the STM32H743VG chip.
 
-# Usage
+
+# Flashing the bootlaoder
 
 Flash the bootloader
 
 ```
-cargo flash --features embassy-stm32/stm32h743vg --release --chip STM32H743VGTx --features "defmt,defmt-rtt"
+cargo flash --release
 ```
+
+# Erasing the flash
+
+If there was a previously installed applicaiton on the board, you can erase the flash by running
+
+```
+sh erase_flash.sh
+```
+and then flash the bootloader again.
+
+# debugging the bootloader
+
+If you wannad debug the bootloader make sure to build it first
+
+```
+cargo build --release
+```
+
+Flash the bootloader (or not if already flashed)
+
+```
+cargo flash --release
+```
+
+To run the debugger, first stop the chip
+```
+probe-rs debug --chip STM32H743VG
+```
+and write `halt` inside, then Ctrl+C to exit the debugger.
+
+Then attach the the debugger
+```
+probe-rs attach --chip STM32H743VG target/thumbv7em-none-eabihf/release/bootloader_poulpe
+```
+
+
