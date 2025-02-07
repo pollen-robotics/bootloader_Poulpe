@@ -8,7 +8,7 @@ This is the bootloader for poulpe boards based on the STM32H743VG chip.
 Flash the bootloader
 
 ```
-cargo flash --release
+cargo flash --release --chip STM32H743VGTx
 ```
 
 ## Erasing the flash
@@ -31,18 +31,18 @@ cargo build --release
 Flash the bootloader (or not if already flashed)
 
 ```
-cargo flash --release
+cargo flash --release --chip STM32H743VGTx
 ```
 
 To run the debugger, first stop the chip
 ```
-probe-rs debug --chip STM32H743VG
+probe-rs debug --chip STM32H743VGTx
 ```
 and write `halt` inside, then Ctrl+C to exit the debugger.
 
 Then attach the the debugger
 ```
-probe-rs attach --chip STM32H743VG target/thumbv7em-none-eabihf/release/bootloader_poulpe
+probe-rs attach --chip STM32H743VGTx target/thumbv7em-none-eabihf/release/bootloader_poulpe
 ```
 
 ## Note
