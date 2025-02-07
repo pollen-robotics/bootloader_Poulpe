@@ -13,8 +13,9 @@ cargo flash --release --chip STM32H743VGTx
 
 ## Erasing the flash
 
-If there was a previously installed applicaiton on the board, you can erase the flash by running
+If there was a previously installed applicaiton on the board, you can erase the flash by running 
 
+Any data stored in the flash will be lost (ex. HARDWARE_ZEROS)
 ```
 sh erase_flash.sh
 ```
