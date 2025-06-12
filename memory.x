@@ -3,7 +3,7 @@ MEMORY
   /* NOTE 1 K = 1 KiBi = 1024 bytes */
   FLASH                             : ORIGIN = 0x08000000, LENGTH = 128K
   BOOTLOADER_STATE                  : ORIGIN = 0x08020000, LENGTH = 128K
-  ACTIVE                            : ORIGIN = 0x08040000, LENGTH = 128K
+  ACTIVE                            : ORIGIN = 0x08040000, LENGTH = 256K
   DFU                               : ORIGIN = 0x08080000, LENGTH = 512K
   RAM                         (rwx) : ORIGIN = 0x24000000, LENGTH = 512K
 }
